@@ -11,21 +11,6 @@ df = pd.read_csv(file_path, names = attribute_list)
 df.to_sql(table_name, conn, if_exists = 'replace', index =False)
 print('Table is ready')
 
-query_statment = f"SELECT * FROM {table_name}"
-query_output = pd.read_sql(query_statment, conn)
-print(query_statment)
-print(query_output)
-
-query_statement = f"SELECT DEP_NAME FROM {table_name}"
-query_output = pd.read_sql(query_statement, conn)
-print(query_statement)
-print(query_output)
-
-query_statement = f"SELECT COUNT(*) as 'number of people' FROM {table_name}"
-query_output = pd.read_sql(query_statement, conn)
-print(query_statement)
-print(query_output)
-
 data_dict = {'DEPT_ID' : [9],
             'DEP_NAME' : ['Quality Assurance'],
             'MANAGER_ID' : [30010],
@@ -41,4 +26,8 @@ query_output = pd.read_sql(query_statment, conn)
 print(query_statment)
 print(query_output)
 
+query_statment = f"SELECT count(*) as 'total entries' from {table_name}"
+query_output = pd.read_sql(query_statment, conn)
+print(query_statment)
+print(query_output)
 conn.close()
