@@ -104,7 +104,7 @@ run_query(query_statement, sql_connection)
 query_statement = f"SELECT AVG(MC_GBP_Billion) FROM Largest_banks"
 run_query(query_statement, sql_connection)
 
-query_statement = f"SELECT Name from Largest_banks LIMIT 5"
+query_statement = f"SELECT Name from Largest_banks LIMIT 15"
 run_query(query_statement, sql_connection)
 
 log_progress('Process Complete.')
